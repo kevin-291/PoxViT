@@ -1,6 +1,6 @@
 # Multi class Disease Classification using Vision Transformers
 
-This project is a multi-class disease classification using Vision Transformers. The project aims to develop a model that can classify images pertaining to diseases such as Chickenpox, Cowpox, Measles, Monkeypox and HFMD (Hand, Foot, Mouth Disease). It can also classify healthy individuals also. Initially, a [Pre Trained Vision Transformer](https://huggingface.co/google/vit-base-patch16-224-in21k) is taken and fine tuned on the dataset. The model is then used to classify the images. The model is then deployed as an application using Streamlit. The model achieves an accuracy of 99% on the test set.
+This project is a multi-class disease classification using Vision Transformers. The project aims to develop a model that can classify images pertaining to diseases such as Chickenpox, Cowpox, Measles, Monkeypox and HFMD (Hand, Foot, Mouth Disease). It can also classify healthy individuals. Initially, a [Pre Trained Vision Transformer](https://huggingface.co/google/vit-base-patch16-224-in21k) is taken and fine tuned on the dataset. The model is then used to classify the images. The model is then deployed as an application using Streamlit. The model achieves an accuracy of 99% on the test set.
 
 ## Dataset
 
