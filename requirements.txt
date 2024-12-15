@@ -1,0 +1,12 @@
+datasets
+accelerate
+scikit-learn 
+pillow 
+torchvision 
+opencv-python 
+evaluate 
+wandb 
+transformers[torch] 
+tf-keras
+numpy
+streamlit
