@@ -1,0 +1,9 @@
+torch
+torchvision
+pytorch_model_summary
+numpy
+scikit-learn
+matplotlib
+seaborn
+datetime
+tqdm
