@@ -17,9 +17,6 @@ The Vision Transformer model consists of:
 2. **Transformer Encoder**: Multiple attention blocks for contextual feature learning
 3. **Classification Head**: MLP head for final classification
 
-![Model Architecture](model%20diagram%20with%20bg.png)
-
-
 ## Requirements
 
 ```bash
