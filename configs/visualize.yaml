@@ -1,0 +1,8 @@
+mode: attention
+data_dir: sorted_dataset
+split: test
+weights: artifacts/best_model.pt
+image: path/to/image.jpg
+num_images: 4
+num_features: 16
+output: artifacts/visualization.png

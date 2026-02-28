@@ -1,0 +1,6 @@
+data_dir: sorted_dataset
+weights: artifacts/best_model.pt
+split: test
+batch_size: 32
+output_json: artifacts/inference_metrics.json
+confusion_matrix: artifacts/confusion_matrix.png
