@@ -44,7 +44,9 @@ def _build_model(cfg: ViTConfig, device: torch.device, weights: str):
         num_patches=cfg.num_patches,
         dropout=cfg.dropout,
     ).to(device)
-    model.load_state_dict(torch.load(weights, map_location=device))
+
+    weights = torch.load(weights, map_location=device)
+    model.load_state_dict(weights["model"])
     model.eval()
     return model
 

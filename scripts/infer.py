@@ -48,7 +48,9 @@ def main():
         num_patches=cfg.num_patches,
         dropout=cfg.dropout,
     ).to(device)
-    model.load_state_dict(torch.load(args.weights, map_location=device))
+    
+    weights = torch.load(args.weights, map_location=device)
+    model.load_state_dict(weights["model"])
 
     results = run_inference(model=model, data_loader=eval_loader, device=device)
     print(f"Accuracy:  {results['accuracy']:.4f}")

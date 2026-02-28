@@ -22,7 +22,7 @@ def parse_args():
     parser.add_argument("--lr", type=float, default=3e-4)
     parser.add_argument("--dropout", type=float, default=0.2)
     parser.add_argument("--seed", type=int, default=42)
-    parser.add_argument("--output", default="artifacts/poxvit.tar")
+    parser.add_argument("--output", default="artifacts/poxvit.pt")
     parser.add_argument("--milestones", nargs="*", type=int, default=[100, 150])
     parser.add_argument("--gamma", type=float, default=0.1)
     parser.add_argument("--log-dir", default="artifacts/logs")

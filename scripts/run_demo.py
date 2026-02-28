@@ -36,7 +36,8 @@ def main():
         dropout=cfg.dropout,
     ).to(device)
 
-    model.load_state_dict(torch.load(args.weights, map_location=device))
+    weights = torch.load(args.weights, map_location=device)
+    model.load_state_dict(weights["model"])
 
     preprocess = build_transforms(cfg.image_size)
     image_tensor = preprocess(Image.open(args.image).convert("RGB")).unsqueeze(0).to(device)
