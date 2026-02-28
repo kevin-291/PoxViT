@@ -143,7 +143,7 @@ def train_model(
     lr: float = 3e-4,
     milestones: tuple[int, ...] = (100, 150),
     gamma: float = 0.1,
-    output_path: str | Path = "best_model_VisionTransformer_patch_size_14.pt",
+    output_path: str | Path = "artifacts/best_model.pt",
     log_dir: str | Path = "artifacts/logs",
     log_tag: str = "train",
     log_freq: int = 10,
