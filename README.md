@@ -30,6 +30,12 @@ PoxViT combines these strengths by replacing standard linear patch projection wi
 - **Skin-Disease-Oriented Workflow**
   - Utilities for data preparation, balancing, training, inference, and visualization.
 
+- **Experiment Tracking & Profiling**
+  - Built-in support for [TensorBoard](https://www.tensorflow.org/tensorboard), [Weights & Biases (wandb)](https://wandb.ai), and [PyTorch Profiler](https://pytorch.org/tutorials/recipes/recipes/profiler_recipe.html) for real-time training monitoring, metric logging, and performance profiling.
+
+- **Early Stopping**
+  - Configurable patience-based early stopping to prevent overfitting and save training time.
+
 - **Reproducible CLI Pipelines**
   - Script-based workflows for training/evaluation and artifact generation.
 
@@ -122,6 +128,67 @@ python scripts/train.py \
   --output artifacts/best_model.pth.tar \
   --log-dir artifacts/logs \
   --log-tag poxvit
+```
+
+#### Early Stopping
+
+Use the `--patience` flag to enable early stopping. Training will halt if validation loss does not improve for the specified number of consecutive epochs:
+
+```bash
+python scripts/train.py \
+  --data-dir sorted_dataset \
+  --epochs 100 \
+  --output artifacts/best_model.pt \
+  --patience 10
+```
+
+Set `--patience -1` (default) to disable early stopping.
+
+#### TensorBoard Integration
+
+Enable TensorBoard logging to track loss, accuracy, learning rate, epoch timing, model graph, and sample predictions:
+
+```bash
+python scripts/train.py \
+  --data-dir sorted_dataset \
+  --epochs 30 \
+  --output artifacts/best_model.pt \
+  --tensorboard \
+  --tb-runs-dir runs
+```
+
+Then launch TensorBoard:
+
+```bash
+tensorboard --logdir runs
+```
+
+#### Weights & Biases (wandb) Integration
+
+Enable W&B logging for cloud-based experiment tracking and model artifact versioning:
+
+```bash
+python scripts/train.py \
+  --data-dir sorted_dataset \
+  --epochs 30 \
+  --output artifacts/best_model.pt \
+  --wandb \
+  --wandb-project poxvit \
+  --wandb-run-name my-run \
+  --wandb-watch
+```
+
+#### PyTorch Profiler
+
+Enable the PyTorch Profiler to capture CPU/CUDA traces viewable in TensorBoard:
+
+```bash
+python scripts/train.py \
+  --data-dir sorted_dataset \
+  --epochs 30 \
+  --output artifacts/best_model.pt \
+  --profiler \
+  --profiler-dir runs/profiler
 ```
 
 ### Evaluate / Inference
@@ -225,6 +292,8 @@ Typical generated artifacts include:
 - **Training logs** (CSV/structured logs)
 - **Evaluation outputs** (metrics, confusion insights, ROC-AUC where enabled)
 - **Visual diagnostics** (attention overlays, patch-feature visualizations)
+- **TensorBoard logs** (scalars, images, model graph, profiler traces)
+- **W&B artifacts** (best model checkpoints uploaded to Weights & Biases)
 
 ---
 
@@ -239,4 +308,6 @@ Typical generated artifacts include:
 
 ## License
 
-MIT License
+[MIT License](LICENSE)
+
+Copyright (c) 2026 Kevin Cherian George
