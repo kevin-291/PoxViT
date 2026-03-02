@@ -31,6 +31,17 @@ def parse_args():
     parser.add_argument("--checkpoint-freq", type=int, default=1)
     parser.add_argument("--save-every-freq", type=int, default=-1)
     parser.add_argument("--resume", default=None, help="Path to checkpoint to resume from")
+    # TensorBoard
+    parser.add_argument("--tensorboard", action="store_true", help="Enable TensorBoard logging")
+    parser.add_argument("--tb-runs-dir", default="runs", help="Root directory for TensorBoard run logs")
+    # PyTorch Profiler
+    parser.add_argument("--profiler", action="store_true", help="Enable PyTorch Profiler")
+    parser.add_argument("--profiler-dir", default="runs/profiler", help="Directory for profiler trace output")
+    # Weights & Biases
+    parser.add_argument("--wandb", action="store_true", help="Enable Weights & Biases logging")
+    parser.add_argument("--wandb-project", default="poxvit", help="W&B project name")
+    parser.add_argument("--wandb-run-name", default=None, help="W&B run name (defaults to log-tag)")
+    parser.add_argument("--wandb-watch", action="store_true", help="Use wandb.watch() to log gradients")
     return parser.parse_args()
 
 
@@ -84,6 +95,14 @@ def main():
         checkpoint_freq=args.checkpoint_freq,
         save_every_freq=args.save_every_freq,
         resume=args.resume,
+        use_tensorboard=args.tensorboard,
+        tb_runs_dir=args.tb_runs_dir,
+        use_profiler=args.profiler,
+        profiler_dir=args.profiler_dir,
+        use_wandb=args.wandb,
+        wandb_project=args.wandb_project,
+        wandb_run_name=args.wandb_run_name,
+        wandb_watch_model=args.wandb_watch,
     )
 
 
